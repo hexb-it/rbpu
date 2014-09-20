@@ -87,7 +87,7 @@ def send_email( email ):
         "To: "+target,
         "Subject: New Redbull Pic Ups",
         "",
-        email + '\nSent via: https://github.com/hexb-it/redbullpicup\nDeveloped by John Adams\nRunning every 5 minutes\n'
+        email + '\nSent via: https://github.com/hexb-it/redbullpicup\nDeveloped by John Adams\n'
         ])
         server.sendmail(username, target, msg)
 
