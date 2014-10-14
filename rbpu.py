@@ -5,7 +5,7 @@ import csv
 import os.path
 import smtplib
 import triang
-import getpass
+#import getpass
 
 def get_json( latitude, longitude, before = '', page = '1'):
     data = urllib.parse.urlencode({'action':'radius-search',
@@ -69,15 +69,18 @@ def create_email( myjson, new ):
             DistA = get_distance(item, LatA, LonA)
             DistB = get_distance(item, LatB, LonB)
             DistC = get_distance(item, LatC, LonC)
-            email = email + '\nlocation : https://www.google.com/maps/place/' + triang.locate(LatA, LonA, DistA, LatB, LonB, DistB, LatC, LonC, DistC) + '\n'
+            email = email + 'location : https://www.google.com/maps/place/' + triang.locate(LatA, LonA, DistA, LatB, LonB, DistB, LatC, LonC, DistC) + '\n'
             email = email + '\n'
         return email
 
 def send_email( email ):
     if email != None:
-        username = input('Gmail username: ')
-        password = getpass.getpass()
-        target = input('Target: ')
+        #username = input('Gmail username: ')
+        #password = getpass.getpass()
+        #target = input('Target: ')
+        username = '@gmail.com'
+        password = ''
+        target = ''
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.ehlo()
         server.starttls()
@@ -127,11 +130,12 @@ def main():
     LatE = 0
     LonE = 0
     
-    ejson = format_json(parse_json(LatE, LonE))
-    new = check_new(ejson)
+    engjson = format_json(parse_json(LatE, LonE))
+    new = check_new(engjson)
     
-    send_email(create_email( ejson, new ))
+    send_email(create_email( engjson, new ))
 
     write_csv(new)
 
-main()
+if __name__ == "__main__":
+    main()

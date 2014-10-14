@@ -52,7 +52,7 @@ def locate(LatA, LonA, DistA, LatB, LonB, DistB, LatC, LonC, DistC):
     y = ((pow(DistA,2) - pow(DistC,2) + pow(i,2) + pow(j,2))/(2*j)) - ((i/j)*x)
     
     # only one case shown here
-    z = numpy.sqrt(pow(DistA,2) - pow(x,2) - pow(y,2))
+    z = math.sqrt(abs(pow(DistA,2) - pow(x,2) - pow(y,2)))
     
     #triPt is an array with ECEF x,y,z of trilateration point
     triPt = P1 + x*ex + y*ey + z*ez
