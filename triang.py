@@ -1,3 +1,6 @@
+# Credit to original goes to wwnick 
+# from https://gis.stackexchange.com/questions/66/trilateration-using-3-latitude-and-longitude-points-and-3-distances
+
 import math
 import numpy
 import numpy.linalg
